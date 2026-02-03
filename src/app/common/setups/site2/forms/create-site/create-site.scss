@@ -1,0 +1,128 @@
+
+
+.modal-header {
+  background: #eeeeee !important;
+  color: #fff !important;
+  padding: 0.5rem 1rem !important;
+  align-items: center !important;
+
+  .modal-title {
+    font-size: 1rem !important;
+    color: #343a40 !important;
+  } 
+}
+
+.modal-body {
+    padding-bottom: 0.2rem;
+    min-height: calc(100vh - 227px);
+  }
+
+.info-panel {
+   padding: 0.5rem 1rem;
+ }
+
+ .selected-item {
+   background: #919399 !important;
+   border: #919399 !important;
+ }
+
+.form-group-custom {
+  margin-bottom: 0.2rem !important;
+
+  .col-form-label {
+    padding-top: calc(0.15rem + 1px);
+    padding-bottom: calc(0.15rem + 1px);
+    line-height: 1;
+    font-size: small;
+    font-weight: 400;
+  }
+
+  .form-control {
+    padding: 0.15rem 0.75rem;
+    font-size: small;
+    //font-weight: 400;
+    line-height: 1;
+    height: calc(1.1em + 0.75rem + 2px)
+  }
+
+  .textarea {
+      line-height: normal;
+      height: auto;
+  }
+}
+
+.sync-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0 0px;
+  font-size: 1.25rem;
+  .btn-list {
+    background-color: transparent;
+    border: 0;
+    color: #c41b2c;
+  }
+
+  .sync-icon {
+    cursor: pointer;
+    transition: 0.1s all ease;
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+
+  .sync-icon-disabled {
+    transition: 0.1s all ease;
+  }
+}
+
+
+.btn-save, .btn-cancel, .btn-delete {
+    font-size: 0.8889rem;
+    border: 0 solid !important;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: #c41b2c !important;
+    color: #fff !important;
+    padding: 0.555rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    margin-right: 3px;
+
+    // Override Bootstrap btn-danger colors
+    &:not(:disabled):not(.disabled) {
+        background-color: #c41b2c !important;
+        border-color: #c41b2c !important;
+        
+        &:hover, &:focus, &:active {
+            color: #fff !important;
+            background-color: #b41535 !important;
+            border-color: #b41535 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &.btn-sm {
+        padding: 6px 10px !important;
+        font-size: 10px !important;
+    }
+    
+    &.btn-lg {
+        padding: 12px 24px !important;
+        font-size: 16px !important;
+    }
+    
+    // Disabled state
+    &:disabled, &.disabled {
+        opacity: 0.65;
+        box-shadow: none;
+    }
+}
+
+.modal-footer {
+    border-top: 1px solid !important;
+    border-color: #ccc !important;
+    padding: 0.2rem 1rem 0.5rem 1rem !important;
+}

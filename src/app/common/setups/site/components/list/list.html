@@ -1,0 +1,56 @@
+<!-- Search bar row - all in one line -->
+<div class="search-bar row">
+    <div class="col-sm-9">
+        <mat-form-field appearance="outline" class="search-field">
+            <input
+                matInput
+                [(ngModel)]="search"
+                (keyup)="applyFilter($event)"
+                placeholder="Search..."/>
+                @if (search !== '') {
+                    <mat-icon matSuffix (click)="clearSearch()" matTooltip="Clear">clear</mat-icon>
+                } @else {
+                    <mat-icon matSuffix>search</mat-icon>
+                }
+        </mat-form-field>
+    </div>
+    <div class="col-sm-3 icon-container">
+        <button matIconButton (click)="openReportComponent()" class="sync-icon print" matTooltip="Print"> 
+            <mat-icon>print</mat-icon>
+        </button>
+        <button matIconButton (click)="refreshComponent()" class="sync-icon refresh" matTooltip="Refresh">
+            <mat-icon>sync</mat-icon>
+        </button>
+    </div>
+</div>
+
+<ng-container>
+  <mat-card>
+      <div class="mat-table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z0" matSort>
+
+          <!-- ID -->
+          <ng-container matColumnDef="code">
+            <th mat-header-cell *matHeaderCellDef sticky mat-sort-header><b>Code</b></th>
+            <td mat-cell *matCellDef="let site">{{site.code}}</td>
+          </ng-container>
+
+          <!-- Name -->
+           <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef sticky mat-sort-header><b>Name</b></th>
+            <td mat-cell *matCellDef="let site">{{site.name}}</td>
+           </ng-container>
+
+           <!-- Short Name -->
+            <ng-container matColumnDef="shortName">
+              <th mat-header-cell *matHeaderCellDef sticky mat-sort-header><b>Short Name</b></th>
+              <td mat-cell *matCellDef="let site">{{site.shortName}}</td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns" sticky></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)" [class.selected-row]="selectedRow?.code === row.code"></tr>
+
+        </table>
+      </div>
+  </mat-card>
+</ng-container>

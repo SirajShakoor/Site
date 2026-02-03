@@ -1,0 +1,35 @@
+<div class="home container-fluid">
+    <div class="d-flex row">
+        <div class="sync col-md-8 justify-content-start">
+            &nbsp; &nbsp;
+			<button class="btn sync">
+				<fa-icon [icon]="faBars" (click)="showHide()" title="Show / Hide"></fa-icon>
+			</button>
+			&nbsp;
+			<h2 class="mb-0">Site</h2>
+        </div>
+        <div class="col-md-4">
+			<div class="d-flex justify-content-end" style="overflow-y: auto; margin-right: -4px !important;">
+				<button class="btn-save" (click)="onAddSiteSetupClicked()">NEW
+					SITE</button>
+			</div>
+		</div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 pe-3 setup-group mt-1 position-relative" [hidden]="collapsed">
+            @if(refreshList) {
+                <bootstrap-site-list [hideSelection]="hideAddButton"></bootstrap-site-list>
+            }
+        </div>
+        <div class="col-md-8 ticket-container align-items-center flex-column">
+            
+            
+				<div class="modal-content-form">
+					<bootstrap-create-site>
+					</bootstrap-create-site>
+				</div>
+			
+            
+        </div>  
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="input-group my-1 search-box">
+    <div class="col-sm-10">
+        <input type="text" class="form-control" (keyup)="applyFilter($event.target.value)" placeholder="Search by code / name" [(ngModel)]="search">
+        @if(search !== ''){
+            <div class="clear" (click)="clear()">
+                <fa-icon [icon]="faTimes"></fa-icon>
+            </div>
+        }
+        
+    </div>
+    <div class="col-sm-1  sync">
+		<div class="sync-icon" (click)="openReportComponent()" title="Print">
+			<fa-icon [icon]="faPrint"></fa-icon>
+		</div>
+	</div>
+	<div class="col-sm-1  sync">
+		<div class="sync-icon" (click)="refreshComponent()" title="Refresh">
+			<fa-icon [icon]="faSyncAlt"></fa-icon>
+		</div>
+	</div>
+</div>
+
+<ng-container>
+    <div class="card">
+        <div class="table-responsive position-relative">
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+						<th width="20%" class="sort" (click)="sortBy('code')">Code
+                            @if(sortedBy === 'code' && order === 'asc'){
+                                <fa-icon [icon]="faLongArrowAltUp"> </fa-icon>
+                            }@else if (sortedBy === 'code' && order === 'desc') {
+                                <fa-icon [icon]="faLongArrowAltDown"></fa-icon>
+                            }	
+						</th>
+						<th width="40%" class="sort" (click)="sortBy('name')">Site Name
+							@if(sortedBy === 'name' && order === 'asc'){
+                                <fa-icon [icon]="faLongArrowAltUp"> </fa-icon>
+                            }@else if (sortedBy === 'name' && order === 'desc') {
+                                <fa-icon [icon]="faLongArrowAltDown"></fa-icon>
+                            }
+						</th>
+						<th width="40%" class="sort" (click)="sortBy('shortName')">Short Name
+							@if(sortedBy === 'shortName' && order === 'asc'){
+                                <fa-icon [icon]="faLongArrowAltUp"> </fa-icon>
+                            }@else if (sortedBy === 'shortName' && order === 'desc') {
+                                <fa-icon [icon]="faLongArrowAltDown"></fa-icon>
+                            }
+						</th>
+					</tr>
+                </thead>
+                @if(sites && sites.length != 0){
+                    <tbody>
+                    @for(site of sites; track site.code){
+                        <tr (click)="onRowClick(site)" [ngClass]="{'active': selectedSiteId === site.code}" id="site.code">
+                            <td>{{site.code}}</td>
+                            <td>{{site.name}}</td>
+                            <td>{{site.shortName}}</td>
+                        </tr>
+                    }
+                    </tbody>
+                }@else if (sites.length == 0) {
+                    <tbody>
+                        <tr>
+                            <td colspan="10" class="text-center">No Record Found</td>
+                        </tr>
+                    </tbody>
+                } 
+            </table>
+        </div>
+    </div>
+</ng-container>

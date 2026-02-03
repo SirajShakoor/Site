@@ -1,0 +1,22 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;   // horizontal center
+  align-items: center;       // vertical center
+  background: #f5f5f5;
+}
+
+.form {
+  width: 100%;
+  max-width: 420px;          // form width
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;    // ONE FIELD PER LINE
+  gap: 16px;                 // spacing between fields
+}
+
+.full-width {
+  width: 100%;
+}

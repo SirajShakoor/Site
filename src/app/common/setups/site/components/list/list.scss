@@ -1,0 +1,190 @@
+/* Search Bar Styling */
+.search-bar {
+  margin-left: 15px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  
+  .col-sm-9, .col-sm-3 {
+    padding: 0;
+  }
+}
+
+/* Search Field Styling */
+::ng-deep {
+  .search-field {
+    width: 100% !important;
+    
+    /* Rounded container */
+    .mat-mdc-text-field-wrapper {
+      border-radius: 24px !important;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      height: 45px !important;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Remove underline */
+    .mat-mdc-form-field-underline {
+      display: none;
+    }
+    
+    /* Remove subscript */
+    .mat-mdc-form-field-subscript-wrapper {
+      display: none;
+    }
+    
+    /* Input text */
+    input {
+      font-size: 14px !important;
+      padding-left: 8px;
+    }
+    
+    /* Remove focus outline */
+    .mat-mdc-form-field-focus-overlay {
+      display: none !important;
+    }
+    
+    /* Remove blue focus border */
+    .mdc-text-field--focused {
+      border-color: #80bdff !important;
+      box-shadow: none !important;
+    }
+    
+    /* Target Material's focus indicator */
+    .mdc-notched-outline__notch, 
+    .mdc-notched-outline__leading, 
+    .mdc-notched-outline__trailing {
+      border-color: transparent !important;
+    }
+  }
+}
+
+/* Icon Container */
+.icon-container {
+  display: flex;
+  align-items: center;
+  height: 45px;
+  gap: 2px;
+}
+
+/* Sync/Print Icons */
+.sync-icon {
+  width: 45px !important;
+  height: 45px !important;
+  outline: none;
+  border: none;
+  
+  
+  mat-icon {
+    font-size: 2rem !important;
+    font-weight: 500;
+    width: 2rem !important;
+    height: 2rem !important;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #343a40;
+    cursor: pointer;
+    transition: 0.1s all ease;
+
+    &:hover {
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.sync-icon.refresh mat-icon {
+  font-weight: 600 !important;
+}
+
+.sync-icon.print mat-icon {
+  margin-left: 10px;
+}
+
+/* Table Container */
+.mat-table-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100vh - 200px);
+  
+  // overflow: hidden;
+}
+
+
+
+/* Table Styling */
+::ng-deep {
+
+  mat-card {
+    border-radius: 6px !important;
+    box-shadow: 1px 1px 3px #ccc !important;
+    overflow: hidden; /* Ensures content respects border-radius */
+  }
+
+  .selected-row {
+    background-color: #e3f2fd !important; /* Light blue for selected */
+  }
+  
+  /* Row styling */
+  .mat-mdc-row {
+    background-color: #ffff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+  
+  /* Header styling */
+  .mat-mdc-header-row {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: #ffff;
+    font-weight: bold;
+  }
+  
+  .mat-mdc-row {
+    height: 42px !important; /* Default is 48px */
+  }
+
+  .mat-mdc-header-row {
+    height: 42px !important; /* Default is 56px */
+  }
+
+  .mat-mdc-header-cell {
+    cursor: pointer;
+  }
+
+  /* Zebra striping - even rows */
+  .mat-mdc-row:nth-child(even) {
+    background-color: #f0f0f0;
+  }
+  
+  /* Make sure hover works on even rows too */
+  .mat-mdc-row:nth-child(even):hover {
+    background-color: #e0e0e0;
+  }
+}
+
+/* Remove unused styles - only keep what's needed */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    gap: 10px;
+    
+    .col-sm-9, .col-sm-3 {
+      width: 100%;
+    }
+    
+    .icon-container {
+      justify-content: flex-start;
+    }
+  }
+}

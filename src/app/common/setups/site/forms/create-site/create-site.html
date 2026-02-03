@@ -1,0 +1,162 @@
+<ng-container>
+
+  <div class="modal-header">
+    <h5 class="modal-title">Site</h5>
+  </div>
+
+  <div class="modal-body">
+
+    <div class="info-panel position-relative" ngForm #create="ngForm">
+
+      <!-- CODE + STATUS -->
+      <div class="row compact-form-field">
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Code</mat-label>
+            <input matInput [(ngModel)]="_site.code" name="code" [disabled]="true"/>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select [(ngModel)]="_site.activeStatus" name="activeStatus">
+              <mat-option value="Y">Active</mat-option>
+              <mat-option value="N">In Active</mat-option>
+            </mat-select>
+            <!-- @if (siteForm.activeStatus().touched() && !siteForm.activeStatus().valid()) {
+              <mat-error>{{ siteForm.activeStatus().errors()[0].message }}</mat-error>
+            } -->
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="_site.email" name="email"/>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="row compact-form-field">
+        <!-- NAME -->
+          <div class="col-sm-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput [(ngModel)]="_site.name" name="name"/>
+              <!-- @if (siteForm.name().touched() && !siteForm.name().valid()) {
+                <mat-error>{{ siteForm.name().errors()[0].message }}</mat-error>
+              } -->
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-6">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Short Name</mat-label>
+              <input matInput [(ngModel)]="_site.shortName" name="shortName"/>
+            </mat-form-field>
+          </div>
+      </div>
+<!-- Short Name -->
+      
+
+      <div class="row compact-form-field">
+        <div class="col-sm-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Address</mat-label>
+            <textarea matInput rows="2" [(ngModel)]="_site.address" name="address"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+      <div class="row compact-form-field">
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>City</mat-label>
+            <mat-select [(ngModel)]="_site.city" name="city" (selectionChange)="onCitySelect()">
+              @for (item of cities; track item.code) {
+                <mat-option [value]="item.code">
+                  <b>{{item.code}}</b> | {{item.description}}
+                </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Region</mat-label>
+            <input matInput [(ngModel)]="region" name="region" [disabled]="true" maxlength="50"/>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Country</mat-label>
+            <input matInput [(ngModel)]="country" name="country" [disabled]="true" maxlength="50"/>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="col-sm-1 sync-list">
+          <button class="btn-list sync-icon" (click)="openCityDialog(siteForm.city().value())">
+            <fa-icon icon="list-alt"></fa-icon>
+          </button>
+        </div> -->
+      </div>
+
+    
+      <div class="row compact-form-field">
+        <div class="col-sm-6">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Phone</mat-label>
+            <input matInput [(ngModel)]="_site.phone" name="phone"/>
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Fax</mat-label>
+            <input matInput [(ngModel)]="_site.fax" name="fax"/>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <div class="row compact-form-field">
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Contact Person</mat-label>
+              <mat-select [(ngModel)]="_site.contactSalutation" name="contactSalutation">
+                <mat-option value="M">Mr.</mat-option>
+                <mat-option value="S">Ms</mat-option>
+                <mat-option value="R">Mrs</mat-option>
+                <mat-option value="O">Other</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-sm-4">
+          <mat-form-field class="w-100" appearance="outline">
+            <input matInput [(ngModel)]="_site.contactPerson" name="contactPerson"/>
+          </mat-form-field>
+        </div>
+
+        <div class="col-sm-4">
+         <mat-checkbox [(ngModel)]="_site.supplyPointTag" name="supplyPointTag">
+            Supply Point
+          </mat-checkbox>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="modal-footer">
+    <button matButton="elevated" class="btn-save btn-sm" type="button" (click)="onConfirmClick()" [disabled]="!create.valid">Save</button>
+    <button matButton="elevated" class="btn-delete btn-sm" type="button" [hidden]="!edit" (click)="onDeleteClick()">Delete</button>
+    <button matButton="elevated" class="btn-cancel btn-sm" type="button" (click)="onCancelClick()">Cancel</button>
+  </div>
+
+</ng-container>

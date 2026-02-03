@@ -1,0 +1,104 @@
+html {
+    background: #eeeeee;
+}
+
+.home {
+    padding-top: 53px;
+    background: #eeeeee;
+
+}
+
+.sync {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0px;
+  color: #343a40;
+  font-size: 2rem;
+
+  
+}
+
+.ticket-container {
+ // background: #fff;
+  //height: calc(100vh - 150px);
+  //padding: 0.5rem;
+  margin-bottom: 0.1rem;
+  //padding-right: -15px !important;
+  
+}
+
+.card {
+    padding: 0.3rem;
+    transition: all 0.4s;
+    color: #919399;
+    width: 96.6%;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px #ccc;
+}
+
+.btn-save{
+    font-size: 0.8889rem;
+    border: 0 solid !important;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: #c41b2c !important;
+    color: #fff !important;
+    padding: 0.555rem 1.5rem;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    margin-right: 3px;
+
+    // Override Bootstrap btn-danger colors
+    &:not(:disabled):not(.disabled) {
+        background-color: #c41b2c !important;
+        border-color: #c41b2c !important;
+        
+        &:hover, &:focus, &:active {
+            color: #fff !important;
+            background-color: #b41535 !important;
+            border-color: #b41535 !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    &.btn-sm {
+        padding: 6px 10px !important;
+        font-size: 10px !important;
+    }
+    
+    &.btn-lg {
+        padding: 12px 24px !important;
+        font-size: 16px !important;
+    }
+    
+    // Disabled state
+    &:disabled, &.disabled {
+        opacity: 0.65;
+        box-shadow: none;
+    }
+}
+
+.modal-content-form {
+  border-radius: 0.75rem;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 3px #ccc;
+  background: #fff;
+  width: 100%;
+  .modal-header {
+    color: #fff !important;
+    padding: 0.2rem 1rem !important;
+    align-items: center !important;
+    background: #eeeeee;
+    border-radius: 0.7rem 0.7rem 0 0;
+    .modal-title {
+      font-size: 1.2rem !important;
+      color: #343a40 !important;
+    }
+
+    .close {
+      display: none;
+    }
+  }
+}

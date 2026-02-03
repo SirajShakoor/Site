@@ -1,0 +1,226 @@
+@use '@angular/material' as mat;
+.modal-footer {
+    border-top: 1px solid;
+    border-color: #ccc;
+    padding: 0.2rem 1rem 0.5rem 1rem;
+}
+
+.compact-form-field {
+  margin-bottom: 5px;
+  @include mat.form-field-overrides((
+    container-height: 32px,                   // total height of the form field
+    container-vertical-padding: 6px,          // top + bottom padding
+    filled-with-label-container-padding-top: 12px,   // space above input when label floats
+    filled-with-label-container-padding-bottom: 0px, // space below input
+    container-text-size: 12px,                // input text size 
+                  
+    // filled-container-color: red,
+    // outlined-caret-color: blue,
+    // Filled-label styling
+    filled-label-text-color: #54595f, //filled-label-styling
+
+    // Subscript styling
+    subscript-text-size: 12px,
+    subscript-text-weight: 400,
+
+    // Error styling
+    error-text-color: red,
+
+    // filled-caret 
+    // filled-caret-color: #54595f,
+    filled-error-caret-color: red,
+
+  ));
+
+}
+
+/*******************************************************
+                      Button Styling
+********************************************************/
+
+::ng-deep {
+  //Increase the Input Text Font Size
+  .mat-mdc-input-element {
+    font-size: 14px !important; /* Change 14px to your desired size */
+  }
+
+  //Increase/Decrease the label fontsize
+  .mat-mdc-form-field-label {
+    font-size: 15px !important; /* Change 12px to your desired size */
+    color: #343a40 !important;
+  }
+  /* For floating label */
+  .mdc-floating-label {
+    font-size: 15px !important;
+    color: #343a40 !important;
+
+  }
+
+   /* Label when FLOATING (above input) */
+  .mdc-floating-label--float-above {
+    font-size: 16px !important; /* Smaller when floating */
+    color: #343a40 !important;
+    font-weight: 600;
+  }
+
+  
+
+  // caret coolor
+  .mat-mdc-input-element {
+    caret-color: #343a40 !important; /* Blue color */
+  }
+  
+
+
+  /* OR set height to 0 if display: none causes issues */
+  .mat-mdc-form-field-subscript-wrapper {
+    height: 0 !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+/****************************************************************
+                    Outline and border
+*****************************************************************/
+  // /* Remove ALL outline changes */
+  // .mat-mdc-text-field-wrapper .mdc-notched-outline {
+  //   border-color: #ccc !important;
+  // }
+  
+  // /* Target specific parts */
+  // .mdc-notched-outline__leading,
+  // .mdc-notched-outline__notch,
+  // .mdc-notched-outline__trailing {
+  //   border-color: #ccc !important;
+  // }
+  
+  // /* Disable hover */
+  // .mat-mdc-text-field-wrapper:hover .mdc-notched-outline__leading,
+  // .mat-mdc-text-field-wrapper:hover .mdc-notched-outline__notch,
+  // .mat-mdc-text-field-wrapper:hover .mdc-notched-outline__trailing {
+  //   border-color: #ccc !important;
+  // }
+  
+  // /* Disable focus */
+  // .mdc-text-field--focused .mdc-notched-outline__leading,
+  // .mdc-text-field--focused .mdc-notched-outline__notch,
+  // .mdc-text-field--focused .mdc-notched-outline__trailing {
+  //   border-color: #ccc !important;
+  // }
+
+
+
+
+
+
+  /* Set background color for disabled form fields */
+  .mat-mdc-form-field-disabled .mat-mdc-text-field-wrapper {
+    background-color: #f2f2f2 !important;
+  }
+  
+  /* Specifically for disabled inputs */
+  .mat-mdc-input-element:disabled {
+    background-color: #f2f2f2 !important;
+    color: #666 !important;
+  }
+  
+  /* For disabled form field appearance */
+  .mat-form-field-disabled {
+    .mat-mdc-text-field-wrapper {
+      background-color: #f2f2f2 !important;
+    }
+    
+    .mat-mdc-form-field-flex {
+      background-color: #f2f2f2 !important;
+    }
+  }
+
+  
+  /* Save Button (Original) */
+  .btn-save {
+    font-size: 0.8889rem;
+    border: 0 solid !important;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: #c41b2c !important;
+    color: #fff !important;
+    padding: 0.555rem 1.5rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    margin-right: 3px;
+
+    &:hover {
+      color: #fff !important;
+      background-color: #b41535 !important;
+    }
+
+    &.btn-sm {
+      padding: 6px 10px !important;
+      font-size: 10px !important;
+    }
+    
+    &.btn-lg {
+      padding: 12px 24px !important;
+      font-size: 16px !important;
+    }
+  }
+
+  /* Cancel Button - SAME AS SAVE (Red) */
+  .btn-cancel {
+    @extend .btn-save;
+    margin-right: 3px;
+    /* No color change - same as save */
+  }
+
+  /* Delete Button - SAME AS SAVE (Red) */
+  .btn-delete {
+    @extend .btn-save;
+    /* No color change - same as save */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ::ng-deep {
+//   /* Change form field container height */
+//   .mat-mdc-text-field-wrapper {
+//     height: 40px !important; /* Change height */
+//   }
+  
+//   /* Adjust input area */
+//   .mat-mdc-form-field-flex {
+//     height: 100% !important;
+//   }
+  
+//   /* Adjust input text */
+//   .mat-mdc-input-element {
+//     height: 100% !important;
+//     padding-top: 0 !important;
+//     padding-bottom: 0 !important;
+//   }
+  
+//   /* For Material Design variables */
+//   mat-form-field {
+//     --mat-form-field-container-height: 40px !important;
+//     --mdc-outlined-text-field-container-height: 40px !important;
+//   }
+// }

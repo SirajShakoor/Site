@@ -1,0 +1,53 @@
+html {
+    background: #eeeeee;
+}
+
+.home {
+    padding-top: 53px;
+    background: #eeeeee;
+
+}
+
+.card {
+    padding: 0.3rem;
+    //  background: transparent;
+    transition: all 0.4s;
+    color: #919399;
+    width: 96.6%;
+    border-radius: 0.4rem;
+    box-shadow: 1px 1px 3px #ccc;
+}
+
+::ng-deep {
+  
+  /* Save Button (Original) */
+  .btn-save {
+    font-size: 0.8889rem;
+    border: 0 solid !important;
+    text-transform: uppercase;
+    font-weight: 400;
+    background-color: #c41b2c !important;
+    color: #fff !important;
+    padding: 0.555rem 1.5rem;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s;
+    margin-right: 3px;
+
+    &:hover {
+      color: #fff !important;
+      background-color: #b41535 !important;
+    }
+
+    &.btn-sm {
+      padding: 6px 10px !important;
+      font-size: 10px !important;
+    }
+    
+    &.btn-lg {
+      padding: 12px 24px !important;
+      font-size: 16px !important;
+    }
+  }
+}
